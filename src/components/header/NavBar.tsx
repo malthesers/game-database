@@ -1,6 +1,6 @@
 import { HStack, Image, Text } from '@chakra-ui/react'
 import logo from '../../assets/logo.webp'
-import ColorModeSwitch from './ColorModeSwitch'
+import ThemeSwitcher from './ThemeSwitcher'
 
 export default function NavBar() {
   return (
@@ -11,7 +11,7 @@ export default function NavBar() {
           <Text>NavBar</Text>
         </HStack>
         <div>
-          <ColorModeSwitch></ColorModeSwitch>
+          <ThemeSwitcher></ThemeSwitcher>
         </div>
       </HStack>
     </header>
