@@ -8,7 +8,6 @@ function App() {
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`
       }}
-      gap='2'
     >
       <GridItem bg='orange.300' gridArea={'nav'}>
         <NavBar />
