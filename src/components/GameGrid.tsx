@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import apiClient from '../services/api-client'
 
 interface GameResponse {
   count: number
@@ -14,12 +15,9 @@ export default function GameGrid() {
   const [games, setGames] = useState<Game[]>([])
   const [error, setError] = useState<string>('')
 
-  // useEffect(() => {
-  //   fetch('', { method: 'GET' })
-  //   .then((res) => res.json())
-  //   .then((data: GameResponse) => setGames(data.results))
-  //   .catch((err) => console.error(`Error: ${err}`))
-  // }, [])
+  useEffect(() => {
+    // apiClient.get<GameResponse>('games').then((res) => setGames(res.data.results))
+  }, [])
 
   return (
     <>
@@ -28,7 +26,7 @@ export default function GameGrid() {
       ) : (
         <ul>
           {games.map((game) => (
-            <li>{game.name}</li>
+            <li key={game.id}>{game.name}</li>
           ))}
         </ul>
       )}
