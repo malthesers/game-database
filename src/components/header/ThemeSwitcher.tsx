@@ -5,6 +5,9 @@ export default function ThemeSwitcher() {
 
   return (
     <HStack>
+      {/* <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'}>
+        Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+      </Switch> */}
       <Button onClick={toggleColorMode}>Toggle {colorMode === 'light' ? 'Dark' : 'Light'}</Button>
     </HStack>
   )
