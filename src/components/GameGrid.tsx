@@ -1,32 +1,18 @@
 import { SimpleGrid, VStack } from '@chakra-ui/react'
-import useWidth from '../hooks/useWidth'
+import useColumns from '../hooks/useColumns'
 import useGames from '../hooks/useGames'
 import GameCard from './GameCard'
-import { useEffect, useState } from 'react'
 import { Game } from '../types'
 
 export default function GameGrid() {
   const { games, error } = useGames()
-  const { windowWidth } = useWidth()
+  const { columnCount } = useColumns()
 
-  const [columnCount, setColumnCount] = useState<number>(1)
   const gameColumns: Array<Game[]> = Array.from({ length: columnCount }, () => [])
 
   games.forEach((game, index) => {
     gameColumns[index % columnCount].push(game)
   })
-
-  useEffect(() => {
-    if (windowWidth < 768) {
-      setColumnCount(1)
-    } else if (windowWidth < 992) {
-      setColumnCount(2)
-    } else if (windowWidth < 1280) {
-      setColumnCount(3)
-    } else {
-      setColumnCount(4)
-    }
-  }, [windowWidth])
 
   return (
     <>
