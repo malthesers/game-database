@@ -8,7 +8,10 @@ export default function useGames() {
   useEffect(() => {
     apiClient
       .get<GameResponse>('games')
-      .then((res) => setGames(res.data.results))
+      .then((res) => {
+        console.log(res.data)
+        setGames(res.data.results)
+      })
       .catch((err) => {
         setError(err.response)
       })
