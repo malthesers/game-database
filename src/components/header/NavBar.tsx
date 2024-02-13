@@ -4,16 +4,16 @@ import ThemeSwitcher from './ThemeSwitcher'
 
 export default function NavBar() {
   return (
-    <header>
-      <HStack padding='0.5rem' justifyContent='space-between'>
+    <HStack as='header' bg='rgba(0, 0, 0, 0.2)'>
+      <HStack w='100%' maxW='80rem' mx='auto' px='4' py='2' justifyContent='space-between'>
         <HStack>
           <Image src={logo} boxSize='60px'></Image>
-          <Text>NavBar</Text>
+          <Text fontWeight='bold'>Games</Text>
         </HStack>
         <div>
           <ThemeSwitcher></ThemeSwitcher>
         </div>
       </HStack>
-    </header>
+    </HStack>
   )
 }
