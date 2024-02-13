@@ -13,10 +13,10 @@ function App() {
         maxW='90rem'
         templateAreas={{
           base: "'main'",
-          lg: "'aside main'"
+          md: "'aside main'"
         }}
       >
-        <Show above='sm'>
+        <Show above='md'>
           <GridItem as='aside' gridArea={'aside'} minW='14rem' bg='rgba(0, 0, 0, 0.2)' p='4' rounded='8'>
             Sidebar
           </GridItem>
