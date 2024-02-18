@@ -10,8 +10,8 @@ const config: ThemeConfig = {
 const styles = {
   global: (props: StyleFunctionProps) => ({
     body: {
-      color: mode('purple.900', 'white')(props),
-      bg: mode('gray.50', 'purple.800')(props)
+      color: mode('black', 'white')(props),
+      bg: mode('gray.100', 'purple.800')(props)
     },
     header: {
       bg: mode('gray.50', 'purple.900')(props)
