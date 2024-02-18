@@ -3,7 +3,8 @@ import { mode } from '@chakra-ui/theme-tools'
 
 const config: ThemeConfig = {
   initialColorMode: 'dark',
-  useSystemColorMode: false
+  useSystemColorMode: false,
+  disableTransitionOnChange: false
 }
 
 const styles = {

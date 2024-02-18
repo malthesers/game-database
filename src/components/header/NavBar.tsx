@@ -12,9 +12,7 @@ export default function NavBar() {
             GameHub
           </Text>
         </HStack>
-        <div>
-          <ThemeSwitcher></ThemeSwitcher>
-        </div>
+        <ThemeSwitcher></ThemeSwitcher>
       </HStack>
     </HStack>
   )
