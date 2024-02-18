@@ -9,7 +9,7 @@ export default function NavBar() {
         <HStack>
           <Image src={logo} boxSize='60px'></Image>
           <Text fontSize='2xl' fontWeight='bold'>
-            Games
+            GameHub
           </Text>
         </HStack>
         <div>
