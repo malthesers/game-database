@@ -1,4 +1,4 @@
-import { Button, HStack, Icon, Switch, useColorMode } from '@chakra-ui/react'
+import { Button, Icon, useColorMode } from '@chakra-ui/react'
 import { MdDarkMode, MdLightMode } from 'react-icons/md'
 
 export default function ThemeSwitcher() {

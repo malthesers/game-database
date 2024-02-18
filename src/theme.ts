@@ -10,12 +10,11 @@ const config: ThemeConfig = {
 const styles = {
   global: (props: StyleFunctionProps) => ({
     body: {
-      color: mode('purple.800', 'white')(props),
-      bg: mode('white', 'purple.800')(props)
+      color: mode('purple.900', 'white')(props),
+      bg: mode('gray.50', 'purple.800')(props)
     },
     header: {
-      color: 'white',
-      bg: 'purple.900'
+      bg: mode('gray.50', 'purple.900')(props)
     }
   })
 }

@@ -1,11 +1,11 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react'
-import NavBar from './components/header/NavBar'
+import Header from './components/header/Header'
 import GameGrid from './components/GameGrid'
 
 function App() {
   return (
     <>
-      <NavBar />
+      <Header />
       <Grid
         p='4'
         gap='4'

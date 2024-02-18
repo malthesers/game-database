@@ -12,7 +12,7 @@ export default function GameCard({ game }: GameCardProps) {
     <Card
       w='100%'
       maxW='22rem'
-      bg={colorMode === 'dark' ? 'purple.900' : 'purple.50'}
+      bg={colorMode === 'dark' ? 'purple.900' : 'white'}
       overflow='hidden'
       boxShadow='lg'
       transitionDuration='200ms'
