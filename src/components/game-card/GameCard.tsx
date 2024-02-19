@@ -1,5 +1,6 @@
 import { Card, HStack, Text, useColorMode, VStack } from '@chakra-ui/react'
 import { Game } from '../../types'
+import GameGenres from './GameGenres'
 import GamePlatformIcons from './GamePlatformIcons'
 import GameScore from './GameScore'
 import GameScreenshot from './GameScreenshot'
@@ -30,6 +31,7 @@ export default function GameCard({ game }: GameCardProps) {
         <Text w='100%' fontSize='xl' fontWeight='bold'>
           {game.name}
         </Text>
+        <GameGenres genres={game.genres} />
       </VStack>
     </Card>
   )
