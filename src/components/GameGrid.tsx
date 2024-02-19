@@ -6,7 +6,7 @@ import { Game } from '../types'
 import GameCardSkeleton from './game-card/GameCardSkeleton'
 
 export default function GameGrid() {
-  const { games, error, loaded } = useGames()
+  const { data: games, error, loaded } = useGames()
   const { columnCount } = useColumns()
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -14,7 +14,7 @@ export default function GameGrid() {
   const gameColumns: Array<Game[]> = Array.from({ length: columnCount }, () => [])
 
   // Distribute games evenly across columns
-  games.forEach((game, index) => gameColumns[index % columnCount].push(game))
+  games?.forEach((game, index) => gameColumns[index % columnCount].push(game))
 
   return (
     <VStack gap='4'>
@@ -36,10 +36,6 @@ export default function GameGrid() {
               ))}
             </VStack>
           ))}
-
-          {/* {games.map((game) => (
-            <GameCard key={game.id} game={game} />
-          ))} */}
         </SimpleGrid>
       )}
     </VStack>
