@@ -1,7 +1,7 @@
 import { SimpleGrid, VStack } from '@chakra-ui/react'
 import useColumns from '../hooks/useColumns'
 import useGames from '../hooks/useGames'
-import GameCard from './GameCard'
+import GameCard from './game-card/GameCard'
 import { Game } from '../types'
 
 export default function GameGrid() {

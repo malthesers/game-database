@@ -25,7 +25,7 @@ export default function GamePlatformIcons({ parentPlatforms }: GamePlatformIcons
   }
 
   return (
-    <HStack p='2'>
+    <HStack w='100%'>
       {platforms.map((platform: string) => (
         <Icon as={icons[platform]} key={platform} />
       ))}
