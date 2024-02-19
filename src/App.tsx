@@ -18,7 +18,7 @@ function App() {
         }}
       >
         <Show above='md'>
-          <GridItem as='aside' gridArea={'aside'} minW='14rem' h='fit-content' bg='rgba(0, 0, 0, 0.2)' p='4' rounded='8'>
+          <GridItem as='aside' gridArea={'aside'} minW='14rem' h='fit-content' p='4' rounded='8'>
             <GenreList />
           </GridItem>
         </Show>

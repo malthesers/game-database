@@ -15,11 +15,13 @@ const styles = {
     },
     header: {
       bg: mode('gray.200', 'purple.900')(props)
+    },
+    aside: {
+      bg: mode('gray.200', 'purple.900')(props)
     }
   })
 }
 
-// 3. extend the theme
 const theme = extendTheme({ config, styles })
 
 export default theme

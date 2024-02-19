@@ -7,7 +7,9 @@ export default function GenreList() {
   return (
     <VStack>
       {genres.map((genre) => (
-        <Link key={genre.slug}>{genre.name}</Link>
+        <Link key={genre.slug} w='100%' textAlign='left'>
+          {genre.name}
+        </Link>
       ))}
     </VStack>
   )
