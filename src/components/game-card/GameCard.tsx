@@ -1,6 +1,7 @@
-import { Card, Image, Text, useColorMode, VStack } from '@chakra-ui/react'
+import { Card, HStack, Image, Text, useColorMode, VStack } from '@chakra-ui/react'
 import { Game } from '../../types'
 import GamePlatformIcons from './GamePlatformIcons'
+import GameScore from './GameScore'
 
 interface GameCardProps {
   game: Game
@@ -21,7 +22,10 @@ export default function GameCard({ game }: GameCardProps) {
     >
       <Image h='48' src={game.background_image} objectFit='cover'></Image>
       <VStack p='3' gap='2'>
-        <GamePlatformIcons parentPlatforms={game.parent_platforms} />
+        <HStack w='100%' justifyContent='space-between'>
+          <GamePlatformIcons parentPlatforms={game.parent_platforms} />
+          <GameScore metacritic={game.metacritic} />
+        </HStack>
         <Text w='100%' fontSize='xl' fontWeight='bold'>
           {game.name}
         </Text>

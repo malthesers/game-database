@@ -1,7 +1,7 @@
 import { HStack, Icon } from '@chakra-ui/react'
 import { FaAndroid, FaApple, FaLinux, FaPlaystation, FaWindows, FaXbox } from 'react-icons/fa'
 import { BsNintendoSwitch } from 'react-icons/bs'
-import { ParentPlatform } from '../types'
+import { ParentPlatform } from '../../types'
 import { IconType } from 'react-icons'
 
 interface GamePlatformIconsProps {
@@ -25,7 +25,7 @@ export default function GamePlatformIcons({ parentPlatforms }: GamePlatformIcons
   }
 
   return (
-    <HStack w='100%'>
+    <HStack>
       {platforms.map((platform: string) => (
         <Icon as={icons[platform]} key={platform} />
       ))}

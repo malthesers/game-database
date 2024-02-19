@@ -10,6 +10,7 @@ export interface Game {
   genres: Genre[]
   platforms: Platform[]
   parent_platforms: ParentPlatform[]
+  metacritic: number
 }
 
 export interface Genre {
