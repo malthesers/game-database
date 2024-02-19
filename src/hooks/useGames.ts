@@ -5,6 +5,8 @@ import { Game, GameResponse } from '../types'
 export default function useGames() {
   const [games, setGames] = useState<Game[]>([])
   const [error, setError] = useState<string>('')
+  const [loaded, setLoaded] = useState<boolean>(false)
+
   useEffect(() => {
     apiClient
       .get<GameResponse>('games')
@@ -12,10 +14,9 @@ export default function useGames() {
         console.log(res.data)
         setGames(res.data.results)
       })
-      .catch((err) => {
-        setError(err.response)
-      })
+      .catch((err) => setError(err.response))
+      .finally(() => setLoaded(true))
   }, [])
 
-  return { games, error }
+  return { games, error, loaded }
 }

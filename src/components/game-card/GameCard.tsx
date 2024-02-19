@@ -1,4 +1,4 @@
-import { Card, HStack, Image, Text, useColorMode, VStack } from '@chakra-ui/react'
+import { Card, HStack, Text, useColorMode, VStack } from '@chakra-ui/react'
 import { Game } from '../../types'
 import GamePlatformIcons from './GamePlatformIcons'
 import GameScore from './GameScore'

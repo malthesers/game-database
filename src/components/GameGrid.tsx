@@ -1,12 +1,14 @@
-import { SimpleGrid, VStack } from '@chakra-ui/react'
+import { SimpleGrid, Text, VStack } from '@chakra-ui/react'
 import useColumns from '../hooks/useColumns'
 import useGames from '../hooks/useGames'
 import GameCard from './game-card/GameCard'
 import { Game } from '../types'
+import GameCardSkeleton from './game-card/GameCardSkeleton'
 
 export default function GameGrid() {
-  const { games, error } = useGames()
+  const { games, error, loaded } = useGames()
   const { columnCount } = useColumns()
+  const skeletons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
   // Create array of game arrays based on column count
   const gameColumns: Array<Game[]> = Array.from({ length: columnCount }, () => [])
@@ -16,8 +18,13 @@ export default function GameGrid() {
 
   return (
     <>
-      {error ? (
-        <div>error</div>
+      {error && <Text>{error}</Text>}
+      {!loaded ? (
+        <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} gap='4'>
+          {skeletons.map((_, index) => (
+            <GameCardSkeleton key={index} />
+          ))}
+        </SimpleGrid>
       ) : (
         <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} gap='4'>
           {/* For each game array create column */}
