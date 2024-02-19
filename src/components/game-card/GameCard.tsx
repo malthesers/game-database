@@ -2,6 +2,7 @@ import { Card, HStack, Image, Text, useColorMode, VStack } from '@chakra-ui/reac
 import { Game } from '../../types'
 import GamePlatformIcons from './GamePlatformIcons'
 import GameScore from './GameScore'
+import GameScreenshot from './GameScreenshot'
 
 interface GameCardProps {
   game: Game
@@ -20,7 +21,7 @@ export default function GameCard({ game }: GameCardProps) {
       transitionDuration='200ms'
       _hover={{ transform: 'scale(1.05)', zIndex: 10 }}
     >
-      <Image h='48' src={game.background_image} objectFit='cover'></Image>
+      <GameScreenshot url={game.background_image} />
       <VStack p='3' gap='2'>
         <HStack w='100%' justifyContent='space-between'>
           <GamePlatformIcons parentPlatforms={game.parent_platforms} />
