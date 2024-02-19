@@ -1,6 +1,7 @@
-import { HStack, Text } from '@chakra-ui/react'
+import { HStack, Icon, Link, Text } from '@chakra-ui/react'
 import ThemeSwitcher from './ThemeSwitcher'
 import GameHubLogo from '../icons/GameHubLogo'
+import { FaGithub } from 'react-icons/fa'
 
 export default function Header() {
   return (
@@ -12,7 +13,20 @@ export default function Header() {
             GameHub
           </Text>
         </HStack>
-        <ThemeSwitcher></ThemeSwitcher>
+        <HStack>
+          <Link
+            href='https://github.com/malthesers/gamehub'
+            display='flex'
+            placeContent='center'
+            transitionDuration='200ms'
+            _hover={{
+              opacity: '70%'
+            }}
+          >
+            <Icon as={FaGithub} w='8' h='8' />
+          </Link>
+          <ThemeSwitcher></ThemeSwitcher>
+        </HStack>
       </HStack>
     </HStack>
   )
