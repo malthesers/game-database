@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import apiClient from '../services/api-client'
 import { Genre, GenreResponse } from '../types'
 
-export default function useGames() {
+export default function useGenres() {
   const [genres, setGenres] = useState<Genre[]>([])
   const [error, setError] = useState<string>('')
   const [loaded, setLoaded] = useState<boolean>(false)

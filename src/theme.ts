@@ -11,10 +11,10 @@ const styles = {
   global: (props: StyleFunctionProps) => ({
     body: {
       color: mode('black', 'white')(props),
-      bg: mode('gray.100', 'purple.800')(props)
+      bg: mode('gray.50', 'purple.800')(props)
     },
     header: {
-      bg: mode('gray.50', 'purple.900')(props)
+      bg: mode('gray.200', 'purple.900')(props)
     }
   })
 }

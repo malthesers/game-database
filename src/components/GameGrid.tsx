@@ -17,7 +17,7 @@ export default function GameGrid() {
   games.forEach((game, index) => gameColumns[index % columnCount].push(game))
 
   return (
-    <>
+    <VStack gap='4'>
       {error && <Text>{error}</Text>}
       {!loaded ? (
         <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} gap='4'>
@@ -42,6 +42,6 @@ export default function GameGrid() {
           ))} */}
         </SimpleGrid>
       )}
-    </>
+    </VStack>
   )
 }
