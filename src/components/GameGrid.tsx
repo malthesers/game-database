@@ -8,7 +8,7 @@ import GameCardSkeleton from './game-card/GameCardSkeleton'
 export default function GameGrid() {
   const { data: games, error, loaded } = useGames()
   const { columnCount } = useColumns()
-  const skeletons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const skeletons = [...Array(12).keys()]
 
   // Create array of game arrays based on column count
   const gameColumns: Array<Game[]> = Array.from({ length: columnCount }, () => [])
@@ -21,8 +21,8 @@ export default function GameGrid() {
       {error && <Text>{error}</Text>}
       {!loaded ? (
         <SimpleGrid w='100%' columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} gap='4'>
-          {skeletons.map((_, index) => (
-            <GameCardSkeleton key={index} />
+          {skeletons.map((skeleton) => (
+            <GameCardSkeleton key={skeleton} />
           ))}
         </SimpleGrid>
       ) : (
