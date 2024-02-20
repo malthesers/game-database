@@ -17,10 +17,10 @@ export default function GameGrid() {
   games?.forEach((game, index) => gameColumns[index % columnCount].push(game))
 
   return (
-    <VStack gap='4'>
+    <VStack as='section' w='100%' gap='4'>
       {error && <Text>{error}</Text>}
       {!loaded ? (
-        <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} gap='4'>
+        <SimpleGrid w='100%' columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} gap='4'>
           {skeletons.map((_, index) => (
             <GameCardSkeleton key={index} />
           ))}

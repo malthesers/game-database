@@ -1,33 +1,18 @@
-import { Grid, GridItem, Show } from '@chakra-ui/react'
+import { Flex, GridItem, Show } from '@chakra-ui/react'
 import Header from './components/header/Header'
 import GameGrid from './components/GameGrid'
 import GenreList from './components/sidebar/GenreList'
 
-function App() {
+export default function App() {
   return (
     <>
       <Header />
-      <Grid
-        p='4'
-        gap='4'
-        mx='auto'
-        maxW='90rem'
-        templateAreas={{
-          base: "'main'",
-          md: "'aside main'"
-        }}
-      >
+      <Flex p='4' gap='4' mx='auto' maxW='90rem' flexDir='row'>
         <Show above='md'>
-          <GridItem as='aside' gridArea={'aside'} minW='14rem' h='fit-content' p='2' rounded='8'>
-            <GenreList />
-          </GridItem>
+          <GenreList />
         </Show>
-        <GridItem as='section' gridArea={'main'}>
-          <GameGrid />
-        </GridItem>
-      </Grid>
+        <GameGrid />
+      </Flex>
     </>
   )
 }
-
-export default App
