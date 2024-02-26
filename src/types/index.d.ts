@@ -23,3 +23,9 @@ export interface ParentPlatform {
     slug: string
   }
 }
+
+export interface Platform {
+  id: number
+  name: string
+  slug: string
+}

@@ -1,21 +1,15 @@
-import { Flex, GridItem, Show } from '@chakra-ui/react'
+import { Flex, Show, VStack } from '@chakra-ui/react'
 import Header from './components/header/Header'
 import GameGrid from './components/GameGrid'
 import GenreList from './components/sidebar/GenreList'
 import { useState } from 'react'
-import { Genre } from './types'
+import { Genre, Platform } from './types'
+import PlatformSelector from './components/PlatformSelector'
 
 export default function App() {
   // const [chosenGenres, setChosenGenres] = useState<Genre[]>([])
   const [chosenGenre, setChosenGenre] = useState<Genre | null>(null)
-
-  // function updateGenres(genre: Genre) {
-  //   setChosenGenres(
-  //     chosenGenres.includes(genre)
-  //       ? chosenGenres.filter((chosenGenre) => chosenGenre.id !== genre.id)
-  //       : [...chosenGenres, genre]
-  //   )
-  // }
+  const [chosenPlatform, setChosenPlatform] = useState<Platform | null>(null)
 
   return (
     <>
@@ -24,7 +18,13 @@ export default function App() {
         <Show above='md'>
           <GenreList chosenGenre={chosenGenre} updateGenres={(genre) => setChosenGenre(genre)} />
         </Show>
-        <GameGrid chosenGenre={chosenGenre} />
+        <VStack>
+          <PlatformSelector
+            chosenPlatform={chosenPlatform}
+            updatePlatform={(platform) => setChosenPlatform(platform)}
+          />
+          <GameGrid chosenGenre={chosenGenre} chosenPlatform={chosenPlatform} />
+        </VStack>
       </Flex>
     </>
   )
