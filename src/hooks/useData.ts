@@ -25,9 +25,17 @@ export default function useData<T>(endpoint: string) {
         if (err instanceof CanceledError) return
         setError(err.response)
       })
-      .finally(() => setLoaded(true))
+      .finally(() => {
+        if (!controller.signal.aborted) {
+          setLoaded(true)
+        }
+      })
 
-    return () => controller.abort()
+    return () => {
+      if (controller.signal.aborted) {
+        controller.abort()
+      }
+    }
   }, [])
 
   return { data, error, loaded }
