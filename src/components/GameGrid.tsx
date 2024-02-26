@@ -2,11 +2,15 @@ import { SimpleGrid, Text, VStack } from '@chakra-ui/react'
 import useColumns from '../hooks/useColumns'
 import useGames from '../hooks/useGames'
 import GameCard from './game-card/GameCard'
-import { Game } from '../types'
+import { Game, Genre } from '../types'
 import GameCardSkeleton from './game-card/GameCardSkeleton'
 
-export default function GameGrid() {
-  const { data: games, error, loaded } = useGames()
+interface GameGridProps {
+  chosenGenre: Genre | null
+}
+
+export default function GameGrid({ chosenGenre }: GameGridProps) {
+  const { data: games, error, loaded } = useGames(chosenGenre)
   const { columnCount } = useColumns()
   const skeletons = [...Array(12).keys()]
 

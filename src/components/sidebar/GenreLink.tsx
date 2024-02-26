@@ -1,21 +1,26 @@
-import { Image, Link, Text, useColorMode } from '@chakra-ui/react'
+import { Button, Image, Text, useColorMode } from '@chakra-ui/react'
 import cropImage from '../../services/image-cropper'
 import { Genre } from '../../types'
 
 interface GenreLinkProps {
+  updateGenres: (genre: Genre) => void
   genre: Genre
 }
 
-export default function GenreLink({ genre }: GenreLinkProps) {
+export default function GenreLink({ genre, updateGenres }: GenreLinkProps) {
   const { colorMode } = useColorMode()
 
   return (
-    <Link
+    <Button
+      onClick={() => updateGenres(genre)}
       key={genre.slug}
       w='100%'
+      h='auto'
+      background='none'
       display='flex'
       flexDir='row'
-      alignItems='center'
+      alignContent='start'
+      justifyContent='start'
       gap='2'
       p='2'
       borderRadius='xl'
@@ -25,8 +30,15 @@ export default function GenreLink({ genre }: GenreLinkProps) {
         background: colorMode === 'light' ? 'gray.200' : 'purple.800'
       }}
     >
-      <Image src={cropImage(genre.image_background)} alt={`${genre.name}`} w='10' h='10' objectFit='cover' borderRadius='lg' />
+      <Image
+        src={cropImage(genre.image_background)}
+        alt={`${genre.name}`}
+        w='10'
+        h='10'
+        objectFit='cover'
+        borderRadius='lg'
+      />
       <Text>{genre.name}</Text>
-    </Link>
+    </Button>
   )
 }
