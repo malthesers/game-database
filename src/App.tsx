@@ -1,4 +1,4 @@
-import { Flex, Show, VStack } from '@chakra-ui/react'
+import { Flex, HStack, Show, VStack } from '@chakra-ui/react'
 import Header from './components/header/Header'
 import GameGrid from './components/GameGrid'
 import GenreList from './components/sidebar/GenreList'
@@ -19,10 +19,12 @@ export default function App() {
           <GenreList chosenGenre={chosenGenre} updateGenres={(genre) => setChosenGenre(genre)} />
         </Show>
         <VStack w='100%'>
-          <PlatformSelector
-            chosenPlatform={chosenPlatform}
-            updatePlatform={(platform) => setChosenPlatform(platform)}
-          />
+          <HStack w='100%'>
+            <PlatformSelector
+              chosenPlatform={chosenPlatform}
+              updatePlatform={(platform) => setChosenPlatform(platform)}
+            />
+          </HStack>
           <GameGrid chosenGenre={chosenGenre} chosenPlatform={chosenPlatform} />
         </VStack>
       </Flex>

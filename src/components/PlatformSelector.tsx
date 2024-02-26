@@ -12,23 +12,21 @@ export default function PlatformSelector({ chosenPlatform, updatePlatform }: Pla
   const { data: platforms, error, loaded } = usePlatforms()
 
   return (
-    <HStack alignItems='start'>
-      <Menu>
-        <MenuButton as={Button} rightIcon={<Icon as={FaChevronCircleDown} />}>
-          Platforms
-        </MenuButton>
-        {!loaded ? (
-          <Spinner />
-        ) : (
-          <MenuList>
-            {platforms?.map((platform) => (
-              <MenuItem onClick={() => updatePlatform(platform)} key={platform.slug}>
-                {platform.name}
-              </MenuItem>
-            ))}
-          </MenuList>
-        )}
-      </Menu>
-    </HStack>
+    <Menu>
+      <MenuButton as={Button} rightIcon={<Icon as={FaChevronCircleDown} />}>
+        Platforms
+      </MenuButton>
+      {!loaded ? (
+        <Spinner />
+      ) : (
+        <MenuList>
+          {platforms?.map((platform) => (
+            <MenuItem onClick={() => updatePlatform(platform)} key={platform.slug}>
+              {platform.name}
+            </MenuItem>
+          ))}
+        </MenuList>
+      )}
+    </Menu>
   )
 }
