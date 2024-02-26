@@ -4,10 +4,11 @@ import { Genre } from '../../types'
 
 interface GenreLinkProps {
   updateGenres: (genre: Genre) => void
+  chosenGenre: Genre | null
   genre: Genre
 }
 
-export default function GenreLink({ genre, updateGenres }: GenreLinkProps) {
+export default function GenreLink({ genre, chosenGenre, updateGenres }: GenreLinkProps) {
   const { colorMode } = useColorMode()
 
   return (
@@ -16,7 +17,6 @@ export default function GenreLink({ genre, updateGenres }: GenreLinkProps) {
       key={genre.slug}
       w='100%'
       h='auto'
-      background='none'
       display='flex'
       flexDir='row'
       alignContent='start'
@@ -26,6 +26,9 @@ export default function GenreLink({ genre, updateGenres }: GenreLinkProps) {
       borderRadius='xl'
       fontWeight='600'
       transitionDuration='200ms'
+      background={
+        chosenGenre?.id === genre.id ? (colorMode === 'light' ? 'gray.200' : 'purple.800') : 'transparent'
+      }
       _hover={{
         background: colorMode === 'light' ? 'gray.200' : 'purple.800'
       }}

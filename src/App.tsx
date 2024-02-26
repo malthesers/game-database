@@ -22,7 +22,7 @@ export default function App() {
       <Header />
       <Flex p='4' gap='4' mx='auto' maxW='90rem' flexDir='row'>
         <Show above='md'>
-          <GenreList updateGenres={(genre) => setChosenGenre(genre)} />
+          <GenreList chosenGenre={chosenGenre} updateGenres={(genre) => setChosenGenre(genre)} />
         </Show>
         <GameGrid chosenGenre={chosenGenre} />
       </Flex>
