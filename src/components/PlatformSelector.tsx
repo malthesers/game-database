@@ -1,4 +1,4 @@
-import { Button, HStack, Icon, Menu, MenuButton, MenuItem, MenuList, Spinner } from '@chakra-ui/react'
+import { Button, Icon, Menu, MenuButton, MenuItem, MenuList, Spinner } from '@chakra-ui/react'
 import { FaChevronCircleDown } from 'react-icons/fa'
 import usePlatforms from '../hooks/usePlatforms'
 import { Platform } from '../types'

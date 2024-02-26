@@ -4,11 +4,11 @@ import { Genre } from '../../types'
 import GenreLink from './GenreLink'
 
 interface GenreListProps {
-  updateGenres: (genre: Genre) => void
+  updateGenre: (genre: Genre) => void
   chosenGenre: Genre | null
 }
 
-export default function GenreList({ chosenGenre, updateGenres }: GenreListProps) {
+export default function GenreList({ chosenGenre, updateGenre }: GenreListProps) {
   const { data: genres, error, loaded } = useGenres()
 
   return (
@@ -22,7 +22,7 @@ export default function GenreList({ chosenGenre, updateGenres }: GenreListProps)
             Genres
           </Text>
           {genres?.map((genre) => (
-            <GenreLink genre={genre} key={genre.slug} chosenGenre={chosenGenre} updateGenres={updateGenres} />
+            <GenreLink genre={genre} key={genre.slug} chosenGenre={chosenGenre} updateGenre={updateGenre} />
           ))}
         </VStack>
       )}

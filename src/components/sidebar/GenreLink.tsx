@@ -3,17 +3,17 @@ import cropImage from '../../services/image-cropper'
 import { Genre } from '../../types'
 
 interface GenreLinkProps {
-  updateGenres: (genre: Genre) => void
+  updateGenre: (genre: Genre) => void
   chosenGenre: Genre | null
   genre: Genre
 }
 
-export default function GenreLink({ genre, chosenGenre, updateGenres }: GenreLinkProps) {
+export default function GenreLink({ genre, chosenGenre, updateGenre }: GenreLinkProps) {
   const { colorMode } = useColorMode()
 
   return (
     <Button
-      onClick={() => updateGenres(genre)}
+      onClick={() => updateGenre(genre)}
       key={genre.slug}
       w='100%'
       h='auto'
