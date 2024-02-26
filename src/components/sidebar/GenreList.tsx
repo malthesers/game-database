@@ -6,7 +6,7 @@ export default function GenreList() {
   const { data: genres, error, loaded } = useGenres()
 
   return (
-    <VStack as='aside' w='fit-content' h='fit-content' p='2' rounded='8'>
+    <VStack as='aside' w='20rem' h='fit-content' p='2' rounded='8'>
       {error && <Text>{error}</Text>}
       {!loaded ? (
         <Text>Loading...</Text>

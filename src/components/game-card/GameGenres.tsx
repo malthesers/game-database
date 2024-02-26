@@ -9,9 +9,9 @@ export default function GameGenres({ genres }: GameGenresProps) {
   return (
     <HStack w='100%' justifyContent='space-between' fontSize='14'>
       <Text>Genres:</Text>
-      <HStack gap='1'>
+      <HStack gap='1' flexWrap='wrap'>
         {genres.map((genre, index) => (
-          <Text key={genre.slug}>
+          <Text as='span' key={genre.slug}>
             <Link
               display='inline-block'
               textDecoration='underline'
