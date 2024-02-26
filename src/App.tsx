@@ -18,7 +18,7 @@ export default function App() {
         <Show above='md'>
           <GenreList chosenGenre={chosenGenre} updateGenres={(genre) => setChosenGenre(genre)} />
         </Show>
-        <VStack>
+        <VStack w='100%'>
           <PlatformSelector
             chosenPlatform={chosenPlatform}
             updatePlatform={(platform) => setChosenPlatform(platform)}

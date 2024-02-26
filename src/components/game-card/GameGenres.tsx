@@ -7,9 +7,9 @@ interface GameGenresProps {
 
 export default function GameGenres({ genres }: GameGenresProps) {
   return (
-    <HStack w='100%' justifyContent='space-between' fontSize='14'>
+    <HStack w='100%' justifyContent='space-between' alignItems='start' fontSize='14'>
       <Text>Genres:</Text>
-      <HStack gap='1' flexWrap='wrap'>
+      <HStack gap='1' flexWrap='wrap' justifyContent='end'>
         {genres.map((genre, index) => (
           <Text as='span' key={genre.slug}>
             <Link
