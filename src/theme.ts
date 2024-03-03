@@ -28,10 +28,10 @@ const styles = {
 
 const theme = extendTheme({
   config,
-  styles
-  // components: {
-  //   Menu: menuTheme
-  // }
+  styles,
+  components: {
+    Menu: menuTheme
+  }
 })
 
 export default theme

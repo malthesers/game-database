@@ -1,4 +1,4 @@
-import { Card, HStack, Text, useColorMode, VStack } from '@chakra-ui/react'
+import { Card, HStack, Text, VStack } from '@chakra-ui/react'
 import { Game } from '../../types'
 import GameGenres from './GameGenres'
 import GamePlatformIcons from './GamePlatformIcons'
@@ -10,14 +10,11 @@ interface GameCardProps {
 }
 
 export default function GameCard({ game }: GameCardProps) {
-  const { colorMode } = useColorMode()
-
   return (
     <Card
       as='article'
       w='100%'
       maxW='22rem'
-      // bg={colorMode === 'dark' ? 'purple.900' : 'gray.50'}
       overflow='hidden'
       boxShadow='lg'
       transitionDuration='200ms'
