@@ -6,7 +6,7 @@ const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpe
 const baseStyle = definePartsStyle({
   list: {
     _dark: {
-      '--menu-bg': 'purple.900'
+      bg: 'purple.900'
     }
   },
   item: {

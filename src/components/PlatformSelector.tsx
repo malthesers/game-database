@@ -4,7 +4,7 @@ import usePlatforms from '../hooks/usePlatforms'
 import { Platform } from '../types'
 
 interface PlatformSelectorProps {
-  updatePlatform: (platform: Platform) => void
+  updatePlatform: (platform?: Platform) => void
   chosenPlatform: Platform | null
 }
 
@@ -20,6 +20,7 @@ export default function PlatformSelector({ chosenPlatform, updatePlatform }: Pla
         <Spinner />
       ) : (
         <MenuList>
+          <MenuItem onClick={() => updatePlatform()}>All</MenuItem>
           {platforms?.map((platform) => (
             <MenuItem onClick={() => updatePlatform(platform)} key={platform.slug}>
               {platform.name}
