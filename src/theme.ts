@@ -19,16 +19,19 @@ const styles = {
     },
     aside: {
       bg: mode('gray.50', 'purple.900')(props)
+    },
+    article: {
+      bg: mode('gray.50 !important', 'purple.900 !important')(props)
     }
   })
 }
 
 const theme = extendTheme({
   config,
-  styles,
-  components: {
-    Menu: menuTheme
-  }
+  styles
+  // components: {
+  //   Menu: menuTheme
+  // }
 })
 
 export default theme

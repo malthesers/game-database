@@ -14,16 +14,17 @@ export default function GameCard({ game }: GameCardProps) {
 
   return (
     <Card
+      as='article'
       w='100%'
       maxW='22rem'
-      bg={colorMode === 'dark' ? 'purple.900' : 'gray.50'}
+      // bg={colorMode === 'dark' ? 'purple.900' : 'gray.50'}
       overflow='hidden'
       boxShadow='lg'
       transitionDuration='200ms'
       _hover={{ transform: 'scale(1.05)', zIndex: 10 }}
     >
       <GameScreenshot url={game.background_image} />
-      <VStack p='3' gap='2'>
+      <VStack p='3' gap='2' bg='inherit'>
         <HStack w='100%' justifyContent='space-between'>
           <GamePlatformIcons parentPlatforms={game.parent_platforms} />
           <GameScore metacritic={game.metacritic} />

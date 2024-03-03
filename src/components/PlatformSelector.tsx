@@ -1,4 +1,4 @@
-import { Button, Icon, Menu, MenuButton, MenuItem, MenuList, Spinner } from '@chakra-ui/react'
+import { Button, Icon, Menu, MenuButton, MenuItem, MenuList, Spinner, useColorMode } from '@chakra-ui/react'
 import { FaChevronCircleDown } from 'react-icons/fa'
 import usePlatforms from '../hooks/usePlatforms'
 import { Platform } from '../types'
@@ -22,7 +22,7 @@ export default function PlatformSelector({ chosenPlatform, updatePlatform }: Pla
         <MenuList>
           <MenuItem onClick={() => updatePlatform()}>All</MenuItem>
           {platforms?.map((platform) => (
-            <MenuItem onClick={() => updatePlatform(platform)} key={platform.slug}>
+            <MenuItem key={platform.slug} onClick={() => updatePlatform(platform)}>
               {platform.name}
             </MenuItem>
           ))}
