@@ -1,5 +1,5 @@
 import { QueryParams } from '../App'
-import { Game, Genre, Platform } from '../types'
+import { Game } from '../types'
 import useData from './useData'
 
 export default function useGames(queryParams: QueryParams) {
@@ -8,7 +8,8 @@ export default function useGames(queryParams: QueryParams) {
     {
       params: {
         genres: queryParams.genre?.id,
-        parent_platforms: queryParams.platform?.id
+        parent_platforms: queryParams.platform?.id,
+        ordering: queryParams.sorting
       }
     },
     [queryParams]
