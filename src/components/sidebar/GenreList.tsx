@@ -17,7 +17,7 @@ export default function GenreList({ chosenGenre, updateGenre }: GenreListProps) 
       {!loaded ? (
         <Spinner />
       ) : (
-        <VStack gap='0'>
+        <VStack w='100%' gap='0'>
           <Text w='100%' textAlign='left' fontSize='20' fontWeight='semibold' p='2'>
             Genres
           </Text>

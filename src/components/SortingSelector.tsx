@@ -9,7 +9,7 @@ interface SortingSelectorProps {
 export default function SortingSelector({ sorting, updateSorting }: SortingSelectorProps) {
   const sortOrders = [
     { value: '', name: 'Relevance' }, //default
-    { value: '-released', name: 'Release Date' },
+    { value: '-released', name: 'Release date' },
     { value: '-rating', name: 'Average rating' },
     { value: '-added', name: 'Date added' },
     { value: '-metacritic', name: 'Popularity' },
