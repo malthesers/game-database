@@ -1,16 +1,17 @@
 import { Flex, HStack, Show, VStack } from '@chakra-ui/react'
+import { Genre, Platform } from './types'
+import { useState } from 'react'
 import PlatformSelector from './components/PlatformSelector'
+import SortingSelector from './components/SortingSelector'
 import GenreList from './components/sidebar/GenreList'
 import Header from './components/header/Header'
 import GameGrid from './components/GameGrid'
-import { useState } from 'react'
-import { Genre, Platform } from './types'
-import SortingSelector from './components/SortingSelector'
 
 export interface QueryParams {
   genre: Genre | null
   platform: Platform | null
   sorting: string
+  search: string
 }
 
 export default function App() {
@@ -18,23 +19,23 @@ export default function App() {
 
   return (
     <>
-      <Header />
+      <Header updateSearch={(input: string) => setQueryParams({ ...queryParams, search: input })} />
       <Flex p='4' gap='4' mx='auto' maxW='90rem' flexDir='row'>
         <Show above='md'>
           <GenreList
             chosenGenre={queryParams.genre}
-            updateGenre={(genre) => setQueryParams({ ...queryParams, genre })}
+            updateGenre={(genre: Genre) => setQueryParams({ ...queryParams, genre })}
           />
         </Show>
         <VStack w='100%' gap='4'>
           <HStack w='100%' gap='4'>
             <SortingSelector
               sorting={queryParams.sorting}
-              updateSorting={(sorting) => setQueryParams({ ...queryParams, sorting })}
+              updateSorting={(sorting: string) => setQueryParams({ ...queryParams, sorting })}
             />
             <PlatformSelector
               chosenPlatform={queryParams.platform}
-              updatePlatform={(platform) => setQueryParams({ ...queryParams, platform })}
+              updatePlatform={(platform: Platform) => setQueryParams({ ...queryParams, platform })}
             />
           </HStack>
           <GameGrid queryParams={queryParams} />

@@ -9,7 +9,8 @@ export default function useGames(queryParams: QueryParams) {
       params: {
         genres: queryParams.genre?.id,
         parent_platforms: queryParams.platform?.id,
-        ordering: queryParams.sorting
+        ordering: queryParams.sorting,
+        search: queryParams.search
       }
     },
     [queryParams]

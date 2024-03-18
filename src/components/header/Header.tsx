@@ -4,7 +4,11 @@ import SearchInput from './SearchInput'
 import GameHubLogo from '../icons/GameHubLogo'
 import GitHubLink from './GitHubLink'
 
-export default function Header() {
+interface HeaderProps {
+  updateSearch: (input: string) => void
+}
+
+export default function Header({ updateSearch }: HeaderProps) {
   const [isMobile] = useMediaQuery('(min-width: 669px)')
 
   return (
@@ -16,7 +20,7 @@ export default function Header() {
             GameHub
           </Text>
         </HStack>
-        <SearchInput />
+        <SearchInput updateSearch={updateSearch} />
         <ThemeSwitcher />
         <GitHubLink />
       </HStack>
