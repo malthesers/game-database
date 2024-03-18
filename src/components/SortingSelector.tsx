@@ -6,33 +6,30 @@ interface SortingSelectorProps {
   sorting: string
 }
 
-interface SortingOptions {
-  [key: string]: string
-}
-
 export default function SortingSelector({ sorting, updateSorting }: SortingSelectorProps) {
-  const sortingOptions: SortingOptions = {
-    '-relevance': '',
-    name: 'Name',
-    '-released': 'Relase date',
-    '-added': 'Date added',
-    '-rating': 'Rating'
-  }
+  const sortOrders = [
+    { value: '', name: 'Relevance' }, //default
+    { value: '-released', name: 'Release Date' },
+    { value: '-rating', name: 'Average rating' },
+    { value: '-added', name: 'Date added' },
+    { value: '-metacritic', name: 'Popularity' },
+    { value: 'name', name: 'Name' }
+  ]
 
-  console.log(sorting)
+  const selectedSortOrder = sortOrders.find((order) => order.value === sorting)
 
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<Icon as={FaChevronCircleDown} />}>
         <Text as='span'>Order by: </Text>
         <Text as='span' fontWeight='700'>
-          {sortingOptions[sorting]}
+          {selectedSortOrder?.name || 'Relevance'}
         </Text>
       </MenuButton>
       <MenuList>
-        {Object.entries(sortingOptions).map(([key, value]) => (
-          <MenuItem key={key} onClick={() => updateSorting(key)}>
-            {value}
+        {sortOrders.map((order) => (
+          <MenuItem key={order.value} onClick={() => updateSorting(order.value)}>
+            {order.name}
           </MenuItem>
         ))}
       </MenuList>
