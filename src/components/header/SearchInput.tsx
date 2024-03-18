@@ -3,7 +3,7 @@ import { FaSearch } from 'react-icons/fa'
 
 export default function SearchInput() {
   return (
-    <InputGroup maxW='20rem'>
+    <InputGroup>
       <InputLeftElement>
         <Icon as={FaSearch} />
       </InputLeftElement>
