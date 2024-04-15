@@ -28,7 +28,7 @@ export default function App() {
           />
         </Show>
         <VStack w='100%' gap='4'>
-          <HStack w='100%' gap='4'>
+          <HStack w='100%' gap='4' display='flex' flexWrap='wrap'>
             <SortingSelector
               sorting={queryParams.sorting}
               updateSorting={(sorting: string) => setQueryParams({ ...queryParams, sorting })}
