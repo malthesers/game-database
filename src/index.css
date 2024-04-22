@@ -10,3 +10,7 @@ form {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
+.infinite-scroll-component_outerdiv {
+  width: 100%;
+}
