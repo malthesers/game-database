@@ -9,7 +9,7 @@ interface PlatformSelectorProps {
 }
 
 export default function PlatformSelector({ chosenPlatform, updatePlatform }: PlatformSelectorProps) {
-  const { data: platforms, loaded } = usePlatforms()
+  const { data: platforms, isLoading } = usePlatforms()
 
   console.log(chosenPlatform)
 
@@ -18,12 +18,12 @@ export default function PlatformSelector({ chosenPlatform, updatePlatform }: Pla
       <MenuButton as={Button} rightIcon={<Icon as={FaChevronCircleDown} />}>
         Platforms
       </MenuButton>
-      {!loaded ? (
+      {isLoading ? (
         <Spinner />
       ) : (
         <MenuList>
           {/* <MenuItem onClick={() => updatePlatform()}>All</MenuItem> */}
-          {platforms?.map((platform) => (
+          {platforms?.results.map((platform) => (
             <MenuItem key={platform.slug} onClick={() => updatePlatform(platform)}>
               {platform.name}
             </MenuItem>
