@@ -1,15 +1,16 @@
 import { Button, Image, Text, useColorMode } from '@chakra-ui/react'
 import cropImage from '../../services/image-cropper'
 import { Genre } from '../../types'
+import useGameQueryStore from '../../stores'
 
 interface GenreLinkProps {
-  updateGenre: (genre: Genre) => void
-  chosenGenre: Genre | null
   genre: Genre
 }
 
-export default function GenreLink({ genre, chosenGenre, updateGenre }: GenreLinkProps) {
+export default function GenreLink({ genre }: GenreLinkProps) {
   const { colorMode } = useColorMode()
+  const chosenGenre = useGameQueryStore((state) => state.queryParams.genre)
+  const updateGenre = useGameQueryStore((state) => state.setGenre)
 
   return (
     <Button

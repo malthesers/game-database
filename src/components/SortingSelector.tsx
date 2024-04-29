@@ -1,12 +1,11 @@
 import { Button, Icon, Menu, MenuButton, MenuItem, MenuList, Text } from '@chakra-ui/react'
 import { FaChevronCircleDown } from 'react-icons/fa'
+import useGameQueryStore from '../stores'
 
-interface SortingSelectorProps {
-  updateSorting: (sorting: string) => void
-  sorting: string
-}
+export default function SortingSelector() {
+  const sorting = useGameQueryStore((state) => state.queryParams.sorting)
+  const updateSorting = useGameQueryStore((state) => state.setSorting)
 
-export default function SortingSelector({ sorting, updateSorting }: SortingSelectorProps) {
   const sortOrders = [
     { value: '', name: 'Relevance' }, //default
     { value: '-released', name: 'Release date' },

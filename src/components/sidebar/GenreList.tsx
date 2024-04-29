@@ -1,14 +1,8 @@
 import { Spinner, Text, VStack } from '@chakra-ui/react'
 import useGenres from '../../hooks/useGenres'
-import { Genre } from '../../types'
 import GenreLink from './GenreLink'
 
-interface GenreListProps {
-  updateGenre: (genre: Genre) => void
-  chosenGenre: Genre | null
-}
-
-export default function GenreList({ chosenGenre, updateGenre }: GenreListProps) {
+export default function GenreList() {
   const { data: genres, error, isLoading } = useGenres()
 
   if (error) return <Text>Error</Text>
@@ -22,9 +16,7 @@ export default function GenreList({ chosenGenre, updateGenre }: GenreListProps) 
           <Text w='100%' textAlign='left' fontSize='20' fontWeight='semibold' p='2'>
             Genres
           </Text>
-          {genres?.results.map((genre) => (
-            <GenreLink genre={genre} key={genre.slug} chosenGenre={chosenGenre} updateGenre={updateGenre} />
-          ))}
+          {genres?.results.map((genre) => <GenreLink genre={genre} key={genre.slug} />)}
         </VStack>
       )}
     </VStack>

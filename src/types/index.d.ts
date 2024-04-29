@@ -29,3 +29,10 @@ export interface Platform {
   name: string
   slug: string
 }
+
+export interface QueryParams {
+  genre: Genre | null
+  platform: Platform | null
+  sorting: string
+  search: string
+}
