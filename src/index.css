@@ -1,4 +1,5 @@
-form {
+form,
+.infinite-scroll-component__outerdiv {
   width: 100%;
 }
 
@@ -9,4 +10,8 @@ form {
 .backface-hidden {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+.infinite-scroll-component {
+  overflow: visible !important;
 }

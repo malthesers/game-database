@@ -12,28 +12,28 @@ interface GameCardProps {
 
 export default function GameCard({ game }: GameCardProps) {
   return (
-    <Link to={`/games/${game.id}`}>
-      <Card
-        as='article'
-        w='100%'
-        maxW='22rem'
-        overflow='hidden'
-        boxShadow='lg'
-        transitionDuration='200ms'
-        _hover={{ transform: 'scale(1.05)', zIndex: 10 }}
-      >
+    <Card
+      as='article'
+      w='100%'
+      maxW='22rem'
+      overflow='hidden'
+      boxShadow='lg'
+      transitionDuration='200ms'
+      _hover={{ transform: 'scale(1.05)', zIndex: 10 }}
+    >
+      <Link to={`/games/${game.id}`}>
         <GameScreenshot url={game.background_image} />
-        <VStack p='3' gap='2' bg='inherit'>
-          <HStack w='100%' justifyContent='space-between'>
-            <GamePlatformIcons parentPlatforms={game.parent_platforms} />
-            <GameScore metacritic={game.metacritic} />
-          </HStack>
-          <Text w='100%' fontSize='xl' fontWeight='bold'>
-            {game.name}
-          </Text>
-          <GameGenres genres={game.genres} />
-        </VStack>
-      </Card>
-    </Link>
+      </Link>
+      <VStack p='3' gap='2' bg='inherit'>
+        <HStack w='100%' justifyContent='space-between'>
+          <GamePlatformIcons parentPlatforms={game.parent_platforms} />
+          <GameScore metacritic={game.metacritic} />
+        </HStack>
+        <Text w='100%' fontSize='xl' fontWeight='bold'>
+          <Link to={`/games/${game.id}`}>{game.name}</Link>
+        </Text>
+        <GameGenres genres={game.genres} />
+      </VStack>
+    </Card>
   )
 }
