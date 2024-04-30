@@ -1,17 +1,12 @@
 import { Button, Icon, Menu, MenuButton, MenuItem, MenuList, Spinner } from '@chakra-ui/react'
 import { FaChevronCircleDown } from 'react-icons/fa'
 import usePlatforms from '../hooks/usePlatforms'
-import { Platform } from '../types'
+import useGameQueryStore from '../stores'
 
-interface PlatformSelectorProps {
-  updatePlatform: (platform: Platform) => void
-  chosenPlatform: Platform | null
-}
-
-export default function PlatformSelector({ chosenPlatform, updatePlatform }: PlatformSelectorProps) {
+export default function PlatformSelector() {
   const { data: platforms, isLoading } = usePlatforms()
-
-  console.log(chosenPlatform)
+  const chosenPlatform = useGameQueryStore((state) => state.queryParams.platform)
+  const updatePlatform = useGameQueryStore((state) => state.setPlatform)
 
   return (
     <Menu>

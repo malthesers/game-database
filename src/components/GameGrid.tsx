@@ -1,18 +1,13 @@
-import { HStack, SimpleGrid, Spinner, Text, VStack } from '@chakra-ui/react'
+import { SimpleGrid, Spinner, Text, VStack } from '@chakra-ui/react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import GameCardSkeleton from './game-card/GameCardSkeleton'
 import GameCard from './game-card/GameCard'
 import useColumns from '../hooks/useColumns'
 import useGames from '../hooks/useGames'
 import { Game } from '../types'
-import { QueryParams } from '../App'
 
-interface GameGridProps {
-  queryParams: QueryParams
-}
-
-export default function GameGrid({ queryParams }: GameGridProps) {
-  const { data, error, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage } = useGames(queryParams)
+export default function GameGrid() {
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames()
   const { columnCount } = useColumns()
   const skeletons = [...Array(12).keys()]
   const fetchedGamesCount = data?.pages.reduce((acc, page) => acc + page.results.length, 0) || 0

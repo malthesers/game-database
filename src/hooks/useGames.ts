@@ -1,11 +1,13 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { QueryParams } from '../App'
 import ApiClient from '../services/api-client'
 import { Game } from '../types'
+import useGameQueryStore from '../stores'
 
 const apiClient = new ApiClient<Game>('/games')
 
-export default function useGames(queryParams: QueryParams) {
+export default function useGames() {
+  const queryParams = useGameQueryStore((state) => state.queryParams)
+
   return useInfiniteQuery({
     queryKey: ['games', queryParams],
     queryFn: ({ pageParam = 1 }) =>
