@@ -1,11 +1,13 @@
 export interface Game {
   id: number
   name: string
+  slug: string
   background_image: string
   genres: Genre[]
   platforms: Platform[]
   parent_platforms: ParentPlatform[]
   metacritic: number
+  description_raw: string
 }
 
 export interface Genre {
