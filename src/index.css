@@ -12,6 +12,10 @@ form,
   backface-visibility: hidden;
 }
 
+.infinite-scroll-component_outerdiv {
+  width: 100%;
+}
+
 .infinite-scroll-component {
   overflow: visible !important;
 }
