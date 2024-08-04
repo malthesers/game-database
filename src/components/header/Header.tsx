@@ -1,4 +1,4 @@
-import { HStack, Link, Text, useMediaQuery } from '@chakra-ui/react'
+import { HStack, Link, Text, useColorMode, useMediaQuery } from '@chakra-ui/react'
 import ThemeSwitcher from './ThemeSwitcher'
 import SearchInput from './SearchInput'
 import GameHubLogo from '../icons/GameHubLogo'
@@ -9,10 +9,11 @@ interface HeaderProps {
 }
 
 export default function Header({ updateSearch }: HeaderProps) {
+  const { colorMode } = useColorMode()
   const [isMobile] = useMediaQuery('(max-width: 669px)')
 
   return (
-    <HStack as='header'>
+    <HStack as='header' backgroundColor={colorMode === 'dark' ? 'rgb(0,0,0,0.5)' : 'rgb(255,255,255,0.2)'}>
       <HStack w='100%' maxW='90rem' mx='auto' p='4' justifyContent='space-between'>
         <HStack>
           <Link href='/'>

@@ -15,7 +15,7 @@ const styles = {
       bg: mode('gray.200', 'purple.800')(props)
     },
     header: {
-      bg: mode('gray.50', 'purple.900')(props)
+      // bg: mode('gray.50', 'purple.900')(props)
     },
     aside: {
       bg: mode('gray.50', 'purple.900')(props)
