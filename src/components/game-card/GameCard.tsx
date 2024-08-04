@@ -11,6 +11,8 @@ interface GameCardProps {
 }
 
 export default function GameCard({ game }: GameCardProps) {
+  const gameUrl = `/games/${game.slug}`
+
   return (
     <Card
       as='article'
@@ -21,7 +23,7 @@ export default function GameCard({ game }: GameCardProps) {
       transitionDuration='200ms'
       _hover={{ transform: 'scale(1.05)', zIndex: 10 }}
     >
-      <Link to={`/games/${game.id}`}>
+      <Link to={gameUrl}>
         <GameScreenshot url={game.background_image} />
       </Link>
       <VStack p='3' gap='2' bg='inherit'>
@@ -30,7 +32,7 @@ export default function GameCard({ game }: GameCardProps) {
           <GameScore metacritic={game.metacritic} />
         </HStack>
         <Text w='100%' fontSize='xl' fontWeight='bold'>
-          <Link to={`/games/${game.id}`}>{game.name}</Link>
+          <Link to={gameUrl}>{game.name}</Link>
         </Text>
         <GameGenres genres={game.genres} />
       </VStack>
